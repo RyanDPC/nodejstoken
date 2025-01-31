@@ -1,12 +1,12 @@
 import mysql from "mysql2/promise";
 
 const dbConfig = {
-  host: 'db',
-  user: 'root',
-  password: 'root',
-  database: 'db_authentication'
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "db_authentication",
+  port: "6031",
 };
-
 
 export const connectToDatabase = async () => {
   try {

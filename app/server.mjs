@@ -9,19 +9,23 @@
 // Librairies et ressources
 
 import express from "express";
+import { connectToDatabase } from "./utils/dbUtils.mjs";
 import userRoute from "./routes/User.mjs";
 import authRoute from "./routes/Auth.mjs";
-import { generateSalt } from './utils/generateSalt.mjs';
+import { generateSalt } from "./utils/generateSalt.mjs";
 const app = express();
 
 // Middleware pour la lecture des réponses formatées en json
 app.use(express.json());
 
 // Les routes
-app.use('/user', userRoute);
-app.use('/auth', authRoute);
+app.use("/user", userRoute);
+app.use("/auth", authRoute);
 
 // Démarrage du serveur
 app.listen(8083, () => {
-    console.log('Séquence authentification, server running on http://localhost:8083/user');
+  console.log(
+    "Séquence authentification, server running on http://localhost:8083/user"
+  );
 });
+connectToDatabase();
